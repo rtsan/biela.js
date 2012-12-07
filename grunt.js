@@ -42,6 +42,8 @@ module.exports = function(grunt) {
                     'src/DepthBuffer.js',
                     'src/FrameBuffer.js',
                     'src/MinMaxBuffer.js',
+                    'src/VertexShader.js',
+                    'src/FragmentShader.js',
                     'src/Program.js',
                     'src/Renderer.js',
                     'src/Texture.js',
