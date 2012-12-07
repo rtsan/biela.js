@@ -14,6 +14,7 @@ biela.js uses [gl-matrix.js](https://github.com/toji/gl-matrix) for matrix calcu
 
 TODO
 ----
+ * alpha blending
  * Use faster algorithm
  * glsl parsing (Create shading javascript function from glsl program)
  * Compatible with WebGL API
