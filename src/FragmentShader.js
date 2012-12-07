@@ -6,7 +6,12 @@ var FragmentShader = function(prog) {
 };
 FragmentShader.prototype.exec = function(varyings) {
     this.prog(this.uniforms, varyings, this.dest);
-    return this.dest.fragColor;
+    var fragColor = this.dest.fragColor;
+    fragColor[0] *= 255;
+    fragColor[1] *= 255;
+    fragColor[2] *= 255;
+    fragColor[3] *= 255;
+    return fragColor;
 };
 FragmentShader.discard = function() {
     throw FragmentShader.DISCARD_THROWABLE;
