@@ -21,27 +21,28 @@ var RenderBuffer = function(width, height) {
     this.imageData = canvasFactory.createImageData(width, height);
     this.clearValue = [ 0, 0, 0, 0 ];
 };
+RenderBuffer.prototype.clear = function() {
+    var data = this.imageData.data;
+    var value = this.clearValue;
+    for (var i = 0, l = data.length; i < l; i += 4) {
+        data[i] = value[0];
+        data[i + 1] = value[1];
+        data[i + 2] = value[2];
+        data[i + 3] = value[3];
+    }
+};
+RenderBuffer.prototype.write = function(i, value) {
+    var data = this.imageData.data;
+    data[i] = value[0];
+    data[i + 1] = value[1];
+    data[i + 2] = value[2];
+    data[i + 3] = value[3];
+};
 
 var ColorBuffer = function(width, height) {
     RenderBuffer.call(this, width, height);
 };
-ColorBuffer.prototype.clear = function() {
-    var data = this.imageData.data;
-    var color = this.clearValue;
-    for (var i = 0, l = data.length; i < l; i += 4) {
-        data[i] = color[0];
-        data[i + 1] = color[1];
-        data[i + 2] = color[2];
-        data[i + 3] = color[3];
-    }
-};
-ColorBuffer.prototype.write = function(i, color) {
-    var data = this.imageData.data;
-    data[i] = color[0];
-    data[i + 1] = color[1];
-    data[i + 2] = color[2];
-    data[i + 3] = color[3];
-};
+ColorBuffer.prototype = Object.create(RenderBuffer.prototype);
 
 var DepthBuffer = function(width, height) {
     RenderBuffer.call(this, width, height);
