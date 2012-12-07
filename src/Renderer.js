@@ -15,8 +15,17 @@ Renderer.renderTriangles = function(count, offset, indices) {
     }
 };
 
-// at present, no mean
-var CLOCKWISE = 0;
+var CLOCKWISE = 1;
+var COUNTERCLOCKWISE = -1;
+
+Renderer.cullCheck = function(cw, pos1, pos2, pos3) {
+    var v1 = [];
+    var v2 = [];
+    vec3.subtract(pos2, pos1, v1);
+    vec3.subtract(pos3, pos1, v2);
+    vec3.cross(v1, v2);
+    return v1[2] * cw > 0;
+};
 
 Renderer.renderTriangle = function(idx1, idx2, idx3) {
     var program = this.currentProgram;
@@ -24,7 +33,7 @@ Renderer.renderTriangle = function(idx1, idx2, idx3) {
     var pos2 = program.vertexShader.exec(1, idx2);
     var pos3 = program.vertexShader.exec(2, idx3);
     var solveMat;
-    if (true || cullCheck(CLOCKWISE, pos1, pos2, pos3)) {
+    if (this.cullCheck(CLOCKWISE, pos1, pos2, pos3)) {
         solveMat = this.getBoundPixels(pos1, pos2, pos3);
         this.rasterize(pos1, pos2, pos3, solveMat);
     }
