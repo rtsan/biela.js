@@ -1,19 +1,16 @@
-biela.js
-========
+# biela.js
 
 biela.js is canvas 3D rendering engine that does not use WebGL.
 
 Build
 -----
 
-To use biela.js, you should built source codes using the build tool grunt.
-[grunt](https://github.com/gruntjs/grunt)
+To use biela.js, you should built source codes using the build tool [grunt](https://github.com/gruntjs/grunt).
 
 Dependent libraries
 -------------------
 
-biela.js uses gl-matrix.js for matrix calculation.
-[gl-matrix.js](https://github.com/toji/gl-matrix)
+biela.js uses [gl-matrix.js](https://github.com/toji/gl-matrix) for matrix calculation.
 
 TODO
 ----
@@ -24,5 +21,5 @@ TODO
 License
 -------
 
-Copyright (c) 2012 rtsan
+Copyright (c) 2012 rtsan  
 Licensed under the MIT license.
