@@ -14,7 +14,6 @@ VertexShader.prototype.exec = function(n, index) {
     this.setVaryings(n, varyings);
     position = this.dest.position;
     this.dividePosition();
-    this.divideVaryings(n, position[3]);
     return position;
 };
 VertexShader.prototype.setVaryings = function(n, varyings) {
@@ -48,16 +47,6 @@ VertexShader.prototype.dividePosition = function() {
     position[0] /= w;
     position[1] /= w;
     position[2] /= w;
-};
-VertexShader.prototype.divideVaryings = function(n, w) {
-    var varyings = this.varyings;
-    var vec;
-    for (var prop in varyings) {
-        vec = varyings[prop][n];
-        for(var i = 0, l = vec.length; i < l; i++) {
-            //vec[i] /= w;
-        }
-    }
 };
 VertexShader.prototype.interpoleVaryings = function(a1, a2, a3) {
     var varyings = this.varyings;
