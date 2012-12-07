@@ -1,6 +1,8 @@
 window.onload = function() {
     Biela.export();
-    var biela = new Biela(320, 320);
+    var cvs = document.createElement('canvas');
+    cvs.width = cvs.height = 320;
+    var biela = new Biela(cvs);
     biela.currentFrameBuffer.colorBuffer.clearValue = [ 0, 0, 0, 255 ];
     document.body.appendChild(biela.canvas);
 

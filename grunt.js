@@ -36,6 +36,7 @@ module.exports = function(grunt) {
                     '<banner:meta.banner>',
                     'src/_intro.js',
                     'src/biela.js',
+                    'src/CanvasFactory.js',
                     'src/FrameBuffer.js',
                     'src/MinMaxBuffer.js',
                     'src/Program.js',

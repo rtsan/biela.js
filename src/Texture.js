@@ -1,10 +1,9 @@
 var Texture = function(image) {
-    this.canvas = document.createElement('canvas');
-    var ctx = this.context = this.canvas.getContext('2d');
+    var canvasFactory = CanvasFactory.instance;
     var width = this.width = image.width;
     var height = this.height = image.height;
-    this.canvas.width = width;
-    this.canvas.height = height;
+    this.canvas = canvasFactory.createCanvas(width, height);
+    var ctx = this.canvas.getContext('2d');
     ctx.drawImage(image, 0, 0, width, height);
     this.imageData = ctx.getImageData(0, 0, width, height);
 };

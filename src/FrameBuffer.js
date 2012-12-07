@@ -16,11 +16,9 @@ FrameBuffer.prototype.clear = function(filter) {
     }
 };
 
-// TODO
-var context = document.createElement('canvas').getContext('2d');
-
 var RenderBuffer = function(width, height) {
-    this.imageData = context.createImageData(width, height);
+    var canvasFactory = CanvasFactory.instance;
+    this.imageData = canvasFactory.createImageData(width, height);
     this.clearValue = [ 0, 0, 0, 0 ];
 };
 
