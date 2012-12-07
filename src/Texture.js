@@ -21,10 +21,10 @@ Texture.prototype.getColorFromUV = function(u, v) {
     var y = (v * (height - 1) + 0.5) | 0;
     var i = (y * width + x) * 4;
     return [
-        data[i],
-        data[i + 1],
-        data[i + 2],
-        data[i + 3]
+        data[i] / 255,
+        data[i + 1] / 255,
+        data[i + 2] / 255,
+        data[i + 3] / 255
     ];
 };
 Texture.prototype.tex2d = function(uv) {
