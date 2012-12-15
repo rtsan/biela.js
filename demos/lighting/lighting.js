@@ -131,8 +131,9 @@ window.onload = function() {
         (function() {
             var position = aVertex;
             position[3] = 1;
-            mat4.multiplyVec4(uWorld, aVertex, position);
-            mat4.multiplyVec4(uProj, position, position);
+            var tmp= [];
+            mat4.multiply(uProj, uWorld, tmp);
+            mat4.multiplyVec4(tmp, position);
 
             dest.position = position;
             varyings.vTexCoord = aTexCoord;
