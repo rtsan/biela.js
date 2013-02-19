@@ -2,6 +2,11 @@
 
 biela.js is canvas 3D rendering engine that does not use WebGL.
 
+DEMO
+----
+
+[lighting](http://rtsan.github.com/biela.js/demos/lighting/)
+
 Build
 -----
 
